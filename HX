@@ -1,1 +1,6 @@
 OS---CODES!
+
+
+rocesses are scheduled using priority scheduler with preemption of a process whenever a new 
+process arrived. Write a C program for implementation of Priority scheduling algorithms. 
+Calculate the average waiting time of the process
