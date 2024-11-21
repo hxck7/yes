@@ -1,0 +1,55 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("Enter number of processes: ");
+    scanf("%d",&n);
+    double tatt=0,wtt=0;
+    
+    int at[n],bt[n],ct[n],tat[n],wt[n],btt[n],p[n];
+    for(int i=0;i<n;i++){
+        printf("Enter arrival time,burst time and priority for process %d: ",i+1);
+        scanf("%d %d %d",&at[i],&bt[i],&p[i]);
+        btt[i]=bt[i];
+    }
+    int current=0,c=n;
+    printf("Gantt chart");
+    
+    while(c!=0){
+        int max=-1;
+        int pp=100000;
+        for(int i=0;i<n;i++){
+            if(at[i]<=current && bt[i]>0 && p[i]<pp){
+                max=i;
+                pp=p[i];
+            }
+        }
+        if(max!=-1){
+            current++;
+            bt[max]--;
+            if(bt[max]==0){
+                ct[max]=current;
+                tat[max]=current-at[max];
+                wt[max]=tat[max]-btt[max];
+                tatt+=tat[max];
+                wtt+=wt[max];
+                c--;
+            }
+            printf("|P%d|",max+1);
+        }
+        else{
+            current++;
+        }
+        
+    }
+    printf("\nPID\tAT\tBT\tCT\tTAT\tWT\n");
+    for(int i=0;i<n;i++){
+        printf("%d\t%d\t%d\t%d\t%d\t%d\n",i+1,at[i],btt[i],ct[i],tat[i],wt[i]);
+    }
+    printf("\n");
+    printf("Average turn around time: %.2f\n",tatt/n);
+    printf("Average waiting time: %.2f",wtt/n);
+
+    return 0;
+}
