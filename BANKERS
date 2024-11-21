@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include<stdbool.h>
+int main() {
+    int n;
+    printf("Enter total number of process: ");
+    scanf("%d",&n);
+    int a,b,c;
+    printf("Total resource of R1: ");
+     scanf("%d",&a);
+     printf("Total resource of R2: ");
+     scanf("%d",&b);
+     printf("Total resource of R3: ");
+     scanf("%d",&c);
+    int alloc[n][3];
+    int aa=0,bb=0,cc=0;
+    for(int i=0;i<n;i++){
+        printf("Enter allocated recourses r1 r2 r3 for P%d: ",i+1);
+        scanf("%d %d %d",&alloc[i][0],&alloc[i][1],&alloc[i][2]);
+        aa+=alloc[i][0];
+        bb+=alloc[i][1];
+        cc+=alloc[i][2];
+    }
+    int need[n][3];
+     for(int i=0;i<n;i++){
+        printf("Enter max needed recourses r1 r2 r3 for P%d: ",i+1);
+        scanf("%d %d %d",&need[i][0],&need[i][1],&need[i][2]);
+    }
+    int avail[]={a-aa,b-bb,c-cc};
+     bool finished[n];
+    for (int i = 0; i < n; i++) {
+        finished[i] = false;
+    }
+    int sequence[n],p=0;
+    while(true){
+        int flag=0;
+        for(int i=0;i<n;i++){
+            if((need[i][0]-alloc[i][0]<=avail[0] && need[i][1]-alloc[i][1]<=avail[1] &&need[i][2]-alloc[i][2]<=avail[2] )&& finished[i]==false){
+                avail[0]+=alloc[i][0];
+                avail[1]+=alloc[i][1];
+                avail[2]+=alloc[i][2];
+                finished[i]=true;
+                flag=1;
+                sequence[p++]=i;
+            }
+        }
+        if(flag==0){
+            break;
+        }
+    }
+   
+    for(int i=0;i<n;i++){
+        if(finished[i]==false){
+            printf("Unsafe sequence!!");
+            return 0;
+        }
+    }
+    printf("Safe sequence!!");
+     printf("P%d",sequence[0]);
+    for(int i=1;i<n;i++){
+        printf("->P%d",sequence[i]);
+    }
+    return 0;
+}
