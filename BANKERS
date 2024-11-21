@@ -30,10 +30,11 @@ int main() {
     for (int i = 0; i < n; i++) {
         finished[i] = false;
     }
-    int sequence[n],p=0;
+    int sequence[n],p=0,uu=-1;
     while(true){
         int flag=0;
-        for(int i=0;i<n;i++){
+        uu=(uu+1)%n;
+        for(int i=uu;i<n;i++){
             if((need[i][0]-alloc[i][0]<=avail[0] && need[i][1]-alloc[i][1]<=avail[1] &&need[i][2]-alloc[i][2]<=avail[2] )&& finished[i]==false){
                 avail[0]+=alloc[i][0];
                 avail[1]+=alloc[i][1];
@@ -41,6 +42,7 @@ int main() {
                 finished[i]=true;
                 flag=1;
                 sequence[p++]=i;
+                uu=i;
             }
         }
         if(flag==0){
