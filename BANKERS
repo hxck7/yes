@@ -43,6 +43,7 @@ int main() {
                 flag=1;
                 sequence[p++]=i;
                 uu=i;
+                break;
             }
         }
         if(flag==0){
