@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <pthread.h>
+
+#define MAX_NUM 10
+
+int odd_sum = 0;
+int even_sum = 0;
+
+void* find_odd(void* arg) {
+    printf("Odd numbers: ");
+    for (int i = 1; i <= MAX_NUM; i += 2) {
+        printf("%d ", i);
+        odd_sum += i;
+    }
+    printf("\n");
+    return NULL;
+}
+
+void* find_even(void* arg) {
+    printf("Even numbers: ");
+    for (int i = 2; i <= MAX_NUM; i += 2) {
+        printf("%d ", i);
+        even_sum += i;
+    }
+    printf("\n");
+    return NULL;
+}
+
+int main() {
+    pthread_t thread1, thread2;
+
+    pthread_create(&thread1, NULL, find_odd, NULL);
+    pthread_create(&thread2, NULL, find_even, NULL);
+
+    pthread_join(thread1, NULL);
+    pthread_join(thread2, NULL);
+
+    printf("Sum of odd numbers: %d\n", odd_sum);
+    printf("Sum of even numbers: %d\n", even_sum);
+
+    return 0;
+}
