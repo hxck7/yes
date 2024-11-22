@@ -1,0 +1,75 @@
+write a shell program to print a fibonacci series. A) The script should accept the input from 
+the command line. B) If you don’t input any data, then display an error message.
+
+
+What are system calls? How are they different from normal function calls? What is fork
+system call used for? Write a program to create a new process using fork().//add two numbers using fork()?
+
+Write a program to create a orphan process using fork().
+
+
+ To write a C program to create 2 threads, first to find the sum of odd numbers, second to find the 
+sum of even numbers. Finally display the list of odd and even numbers
+
+Write a program to create a zombie process using fork()
+
+
+Write a shell program to check whether given three number are equal or not. The script should 
+accept the input from the command line
+
+
+rite a shell program to find to whether a given number is prime number or not using if else 
+condition. The script should accept the input from the command line
+
+
+ To write a C program for implementation memory allocation methods for fixed partition using first fit
+
+
+ To write a C program for implementation memory allocation methods for fixed partition using best fit.
+
+
+
+. Write a shell script to print a number in reverse order. It should support the following 
+requirements:
+i) The script should accept the input from the command line. 
+ii) If you don’t input any data, then display an error message
+
+Write a multithreaded program that calculates various statistical values for a list of numbers. 
+One thread will determine the average of the numbers, the second will determine the maximum 
+value
+
+
+
+b. Write a Shell program to find a factorial of a number. The script should accept the input from the 
+command line
+
+
+Write a shell program to check whether the given book is available or not. The set of books 
+are {Data structure, Operating system, Discrete mathematics, Algorithms}. If the book is not 
+found, display an error message.
+
+
+
+Write a Shell program to swap the two non-negative integers. The script should accept the input 
+from the command line.
+
+
+To write a C program to create 2 threads, first to find the sum of odd numbers, second to find the 
+sum of even numbers. Finally display the list of odd and even numbers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
