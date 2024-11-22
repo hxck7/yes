@@ -1,0 +1,24 @@
+#!/bin/bash
+
+books=("Data structure" "Operating system" "Discrete mathematics" "Algorithms")
+
+if [ -z "$1" ]; then
+    echo "Error: No book name provided. Please enter a book name."
+    exit 1
+fi
+
+book_to_check="$1"
+book_found="no"
+
+for book in "${books[@]}"; do
+    if [ "$book_to_check" == "$book" ]; then
+        book_found="yes"
+        break
+    fi
+done
+
+if [ "$book_found" == "yes" ]; then
+    echo "The book '$book_to_check' is available."
+else
+    echo "Error: The book '$book_to_check' is not available."
+fi
