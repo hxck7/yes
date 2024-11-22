@@ -41,7 +41,7 @@ int main() {
                 avail[2]+=alloc[i][2];
                 finished[i]=true;
                 flag=1;
-                sequence[p++]=i;
+                sequence[p++]=i+1;
                 uu=i;
                 break;
             }
